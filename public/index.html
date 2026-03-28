@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幼升小注意事项</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;line-height:1.8;color:#333;background:#fff}
+        nav{background:linear-gradient(135deg,#ff6b6b,#ee5a6f);padding:1rem 2rem;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+        nav .container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+        nav .logo{font-size:1.5rem;font-weight:bold;color:#fff}
+        nav a{color:#fff;text-decoration:none;margin-left:1.5rem;opacity:.9;transition:opacity .3s}
+        nav a:hover{opacity:1}
+        .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+        .hero{background:linear-gradient(135deg,#ff6b6b,#ee5a6f);color:#fff;padding:5rem 2rem;text-align:center}
+        .hero h1{font-size:2.8rem;margin-bottom:.5rem}
+        .hero .subtitle{font-size:1.2rem;opacity:.9}
+        .section{padding:4rem 2rem}
+        .section.alt{background:#fff5f7}
+        .section-title{text-align:center;font-size:2.2rem;margin-bottom:.5rem}
+        .section-desc{text-align:center;color:#888;margin-bottom:2.5rem}
+        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+        .card{background:#fff;border-radius:12px;padding:2rem;box-shadow:0 4px 15px rgba(0,0,0,.08);border-top:4px solid #ff6b6b}
+        .card h3{color:#ff6b6b;margin-bottom:.5rem;font-size:1.3rem}
+        .card p{color:#666;font-size:.95rem;line-height:1.6}
+        .card ul{margin-left:1.5rem;margin-top:.5rem}
+        .card li{margin-bottom:.5rem;color:#666}
+        .timeline{position:relative;padding:2rem 0}
+        .timeline-item{display:flex;margin-bottom:2rem}
+        .timeline-dot{width:40px;height:40px;background:#ff6b6b;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;flex-shrink:0}
+        .timeline-content{margin-left:1.5rem;background:#fff;padding:1.5rem;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,.08)}
+        .timeline-content h4{color:#ff6b6b;margin-bottom:.5rem}
+        .timeline-content p{color:#666;font-size:.9rem}
+        .tips{background:#fff5f7;border-left:4px solid #ff6b6b;padding:1.5rem 2rem;border-radius:8px;margin:1.5rem 0}
+        .tips h4{color:#ff6b6b;margin-bottom:.5rem}
+        .tips p{color:#666;font-size:.95rem}
+        .conclusion{background:linear-gradient(135deg,#ff6b6b,#ee5a6f);color:#fff;padding:3rem 2rem;text-align:center;border-radius:12px;margin:2rem 0}
+        .conclusion h2{font-size:2rem;margin-bottom:1rem}
+        footer{background:#333;color:#fff;padding:2rem;text-align:center}
+
+        /* Q&A System Styles */
+        .qa-container{background:#fff;border-radius:12px;padding:2rem;box-shadow:0 4px 15px rgba(0,0,0,.08);margin:2rem 0}
+        .qa-form{display:grid;gap:1rem;margin-bottom:2rem}
+        .qa-form input,.qa-form textarea,.qa-form select{padding:.8rem;border:1px solid #ddd;border-radius:8px;font-size:1rem;width:100%}
+        .qa-form textarea{resize:vertical;min-height:80px}
+        .qa-btn{padding:.8rem 1.5rem;border:none;border-radius:8px;cursor:pointer;font-size:1rem;transition:all .3s}
+        .qa-btn-primary{background:#ff6b6b;color:#fff}
+        .qa-btn-primary:hover{background:#ee5a6f}
+        .qa-btn-secondary{background:#666;color:#fff}
+        .qa-btn-secondary:hover{background:#555}
+        .qa-btn-danger{background:#e74c3c;color:#fff}
+        .qa-btn-danger:hover{background:#c0392b}
+        .qa-btn-small{padding:.5rem 1rem;font-size:.9rem}
+        .qa-list{list-style:none;padding:0}
+        .qa-item{background:#fff;border-radius:12px;padding:1.5rem;margin-bottom:1rem;box-shadow:0 2px 10px rgba(0,0,0,.05);border-left:4px solid #ff6b6b}
+        .qa-item.admin-view{border-left-color:#9b59b6}
+        .qa-question{font-weight:bold;color:#333;margin-bottom:.5rem;font-size:1.1rem}
+        .qa-answer{color:#666;margin-bottom:.5rem;padding:.5rem 0;border-bottom:1px solid #eee}
+        .qa-meta{font-size:.85rem;color:#999;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+        .qa-actions{display:flex;gap:.5rem}
+        .qa-empty{text-align:center;color:#999;padding:3rem}
+        .admin-login{background:#fff;border-radius:12px;padding:2rem;max-width:400px;margin:0 auto;text-align:center}
+        .admin-login input{padding:.8rem;border:1px solid #ddd;border-radius:8px;font-size:1rem;width:100%;margin-bottom:1rem}
+        .admin-badge{background:#9b59b6;color:#fff;padding:.2rem .5rem;border-radius:4px;font-size:.8rem;margin-right:.5rem}
+        .qa-filter{display:flex;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+        .qa-filter select{padding:.5rem;border:1px solid #ddd;border-radius:8px}
+        .loading{text-align:center;padding:2rem;color:#999}
+        .success-msg{background:#d4edda;color:#155724;padding:1rem;border-radius:8px;margin-bottom:1rem;text-align:center}
+        @media(max-width:768px){
+            nav a{margin-left:1rem;font-size:.9rem}
+            .hero h1{font-size:2rem}
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">🎒 幼升小</div>
+            <div>
+                <a href="#prepare">准备工作</a>
+                <a href="#learning">学习准备</a>
+                <a href="#life">生活适应</a>
+                <a href="#psychology">心理建设</a>
+                <a href="#haidian">海淀入学</a>
+                <a href="#timeline">时间规划</a>
+                <a href="#qa">咨询问答</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>🎒 幼升小注意事项</h1>
+            <p class="subtitle">帮助孩子顺利过渡到小学生活</p>
+        </div>
+    </section>
+
+    <section class="section" id="prepare">
+        <div class="container">
+            <h2 class="section-title">准备工作</h2>
+            <p class="section-desc">入学前的必要准备</p>
+            <div class="cards">
+                <div class="card">
+                    <h3>📚 学用品准备</h3>
+                    <ul>
+                        <li>书包（舒适、轻便）</li>
+                        <li>文具盒和铅笔</li>
+                        <li>橡皮和削笔刀</li>
+                        <li>练习本和作业本</li>
+                        <li>水杯和毛巾</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>👕 衣物准备</h3>
+                    <ul>
+                        <li>校服（如有要求）</li>
+                        <li>运动鞋（舒适易穿）</li>
+                        <li>袜子和内衣</li>
+                        <li>季节性衣物</li>
+                        <li>雨具</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🏥 健康检查</h3>
+                    <ul>
+                        <li>体检（视力、听力）</li>
+                        <li>疫苗接种</li>
+                        <li>牙齿检查</li>
+                        <li>准备健康档案</li>
+                        <li>了解孩子过敏情况</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt" id="learning">
+        <div class="container">
+            <h2 class="section-title">学习准备</h2>
+            <p class="section-desc">学前必备的学习能力</p>
+            <div class="cards">
+                <div class="card">
+                    <h3>✏️ 基础能力</h3>
+                    <p>孩子应该能够：</p>
+                    <ul>
+                        <li>认识简单的汉字和数字</li>
+                        <li>会写自己的名字</li>
+                        <li>能数到100</li>
+                        <li>理解基本的数学概念</li>
+                        <li>能听懂简单的指令</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🎨 兴趣培养</h3>
+                    <p>提前培养的兴趣：</p>
+                    <ul>
+                        <li>阅读习惯（每天读书）</li>
+                        <li>绘画和手工</li>
+                        <li>音乐和舞蹈</li>
+                        <li>体育运动</li>
+                        <li>科学探索</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🧠 思维发展</h3>
+                    <p>重点培养的能力：</p>
+                    <ul>
+                        <li>观察力和注意力</li>
+                        <li>记忆力</li>
+                        <li>逻辑思维</li>
+                        <li>创意思维</li>
+                        <li>问题解决能力</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="life">
+        <div class="container">
+            <h2 class="section-title">生活适应</h2>
+            <p class="section-desc">帮助孩子适应小学生活</p>
+            <div class="cards">
+                <div class="card">
+                    <h3>⏰ 作息调整</h3>
+                    <p>提前调整孩子的作息时间：</p>
+                    <ul>
+                        <li>早睡早起（7点前起床）</li>
+                        <li>保证充足睡眠（9-10小时）</li>
+                        <li>规律的三餐时间</li>
+                        <li>适当的午休时间</li>
+                        <li>避免过度娱乐</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🍽️ 饮食习惯</h3>
+                    <p>培养良好的饮食习惯：</p>
+                    <ul>
+                        <li>营养均衡的饮食</li>
+                        <li>独立进食能力</li>
+                        <li>不挑食</li>
+                        <li>适量饮水</li>
+                        <li>避免过多零食</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🚽 自理能力</h3>
+                    <p>必须掌握的自理技能：</p>
+                    <ul>
+                        <li>独立上厕所</li>
+                        <li>自己穿脱衣服</li>
+                        <li>洗手和漱口</li>
+                        <li>整理书包</li>
+                        <li>基本的卫生习惯</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt" id="haidian">
+        <div class="container">
+            <h2 class="section-title">🏛️ 北京市海淀区幼升小流程</h2>
+            <p class="section-desc">海淀区2024年小学入学流程详解</p>
+            <div class="tips">
+                <h4>📅 重要时间节点（参考2024年）</h4>
+                <p>5月初：海淀区义务教育入学服务平台开放注册<br>
+                5月中旬：信息采集（在京籍学生信息填报）<br>
+                6月上旬：街道办审核材料<br>
+                6月中旬：小学现场报名<br>
+                7月上旬：发放入学通知书</p>
+            </div>
+            <h3 style="color:#ff6b6b;margin:2rem 0 1rem">入学条件</h3>
+            <div class="cards">
+                <div class="card">
+                    <h3>📋 基本条件</h3>
+                    <ul>
+                        <li>年满6周岁（2018年8月31日前出生）</li>
+                        <li>具有海淀区户籍</li>
+                        <li>或具有海淀区房产</li>
+                        <li>或具有海淀区居住证</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🏠 房产要求</h3>
+                    <ul>
+                        <li>法定监护人在海淀区有房产</li>
+                        <li>房产性质为住宅</li>
+                        <li>提供房产证或购房合同</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>📝 居住证要求</h3>
+                    <ul>
+                        <li>父母双方持有海淀区居住证</li>
+                        <li>居住证在有效期内</li>
+                        <li>实际居住地址在海淀区</li>
+                    </ul>
+                </div>
+            </div>
+            <h3 style="color:#ff6b6b;margin:2rem 0 1rem">入学流程</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot">1</div>
+                    <div class="timeline-content">
+                        <h4>信息采集</h4>
+                        <p>登录北京市义务教育入学服务平台（https://yjrx.bjedu.cn），进行信息采集。需准备：孩子身份证号、户口本、房产证、出生证明等材料。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">2</div>
+                    <div class="timeline-content">
+                        <h4>街道办审核</h4>
+                        <p>携带相关材料到户籍所在地或房产所在地的街道办进行材料审核。海淀区一般要求到中关村学区、海淀学区等对应学区审核。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">3</div>
+                    <div class="timeline-content">
+                        <h4>小学报名</h4>
+                        <p>按照划片范围到对应小学进行现场报名。需携带：信息采集表、房产证、户口本、孩子照片等。具体时间以学校通知为准。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">4</div>
+                    <div class="timeline-content">
+                        <h4>发放通知书</h4>
+                        <p>7月上旬，学校发放入学通知书。家长按通知时间到校办理入学手续。</p>
+                    </div>
+                </div>
+            </div>
+            <h3 style="color:#ff6b6b;margin:2rem 0 1rem">学区划分参考</h3>
+            <div class="cards">
+                <div class="card">
+                    <h3>🗺️ 中关村学区</h3>
+                    <p>人大附中实验小学、中关村一小、中关村二小、中关村三小等。重点小学集中区域，竞争较为激烈。</p>
+                </div>
+                <div class="card">
+                    <h3>🗺️ 海淀学区</h3>
+                    <p>海淀实验小学，五一小学、七一小学、玉泉小学等。学校教学质量较高，学位相对紧张。</p>
+                </div>
+                <div class="card">
+                    <h3>🗺️ 上地学区</h3>
+                    <p>上地实验小学、清华附中上地小学等。科技企业集中区域，新建学校较多。</p>
+                </div>
+                <div class="card">
+                    <h3>🗺️ 学院路学区</h3>
+                    <p>石油附小，地大附小、科大附小等。高校附属小学，教育资源丰富。</p>
+                </div>
+            </div>
+            <div class="tips" style="margin-top:2rem">
+                <h4>⚠️ 注意事项</h4>
+                <p>
+                • 信息采集必须由法定监护人完成<br>
+                • 房产和户口地址必须一致才能优先录取<br>
+                • 租房入学需提供房东房产证和租房合同<br>
+                • 民办学校和国际学校不参加划片，需单独报名<br>
+                • 咨询电话：海淀区教委 010-62586791
+                </p>
+            </div>
+            <h3 style="color:#ff6b6b;margin:2rem 0 1rem">热门小学参考</h3>
+            <div class="cards">
+                <div class="card">
+                    <h3>⭐ 人大附中实验小学</h3>
+                    <p>海淀区顶尖小学，九年一贯制，直升人大附中。学位极其紧张，需落户满年限。</p>
+                </div>
+                <div class="card">
+                    <h3>⭐ 中关村三小</h3>
+                    <p>海淀区重点小学，科技教育特色。划片范围内房产价格较高。</p>
+                </div>
+                <div class="card">
+                    <h3>⭐ 海淀实验小学</h3>
+                    <p>历史悠久，教学经验丰富。拥有多个校区，招生规模较大。</p>
+                </div>
+                <div class="card">
+                    <h3>⭐ 清华附小</h3>
+                    <p>清华大学附属小学，九年一贯。优先招收清华职工子女。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt" id="psychology">
+        <div class="container">
+            <h2 class="section-title">心理建设</h2>
+            <p class="section-desc">帮助孩子做好心理准备</p>
+            <div class="tips">
+                <h4>🎯 积极心态</h4>
+                <p>经常和孩子谈论小学的美好事物，让孩子对小学充满期待。避免说"小学很严格"这样的负面言论。</p>
+            </div>
+            <div class="tips">
+                <h4>👥 社交能力</h4>
+                <p>鼓励孩子主动交朋友，参加集体活动。教会孩子如何与同学相处，学会分享和合作。</p>
+            </div>
+            <div class="tips">
+                <h4>💪 独立意识</h4>
+                <p>逐步培养孩子的独立性，让孩子学会自己解决问题。不要过度保护，给孩子适当的挑战。</p>
+            </div>
+            <div class="tips">
+                <h4>😌 情绪管理</h4>
+                <p>教会孩子认识和管理自己的情绪。学会表达感受，遇到困难时知道如何寻求帮助。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="timeline">
+        <div class="container">
+            <h2 class="section-title">时间规划</h2>
+            <p class="section-desc">幼升小的准备时间表</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot">1</div>
+                    <div class="timeline-content">
+                        <h4>入学前6个月</h4>
+                        <p>开始调整作息，培养学习兴趣，进行体检和疫苗接种。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">2</div>
+                    <div class="timeline-content">
+                        <h4>入学前3个月</h4>
+                        <p>购买学用品，参加学校开放日，了解学校环境和老师。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">3</div>
+                    <div class="timeline-content">
+                        <h4>入学前1个月</h4>
+                        <p>进行心理建设，讲述小学的故事，参加学校组织的新生活动。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">4</div>
+                    <div class="timeline-content">
+                        <h4>入学前1周</h4>
+                        <p>最后检查准备工作，调整心态，鼓励孩子，准备迎接新生活。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt" id="qa">
+        <div class="container">
+            <h2 class="section-title">💬 咨询问答</h2>
+            <p class="section-desc">提交您的疑问，管理员会尽快回复</p>
+            
+            <!-- Submit Question Form -->
+            <div class="qa-container">
+                <h3 style="color:#ff6b6b;margin-bottom:1rem">提交问题</h3>
+                <form class="qa-form" id="qaForm">
+                    <input type="text" id="qaName" placeholder="您的称呼（选填）" maxlength="20">
+                    <input type="tel" id="qaPhone" placeholder="联系电话（选填）" maxlength="20">
+                    <input type="text" id="qaTitle" placeholder="问题标题 *" required maxlength="100">
+                    <textarea id="qaContent" placeholder="详细描述您的问题... *" required maxlength="1000"></textarea>
+                    <button type="submit" class="qa-btn qa-btn-primary">提交问题</button>
+                </form>
+            </div>
+
+            <!-- Admin Login -->
+            <div class="admin-login" id="adminLogin">
+                <h3 style="color:#9b59b6;margin-bottom:1rem">管理员登录</h3>
+                <input type="password" id="adminPassword" placeholder="输入管理员密码">
+                <button class="qa-btn qa-btn-secondary" onclick="adminLogin()">登录</button>
+                <p style="color:#999;font-size:.85rem;margin-top:.5rem">默认密码：admin123</p>
+            </div>
+
+            <!-- Admin Panel -->
+            <div id="adminPanel" style="display:none" class="qa-container">
+                <h3 style="color:#9b59b6;margin-bottom:1rem"><span class="admin-badge">管理员</span>管理面板 <button class="qa-btn qa-btn-secondary qa-btn-small" onclick="adminLogout()">退出</button></h3>
+            </div>
+
+            <!-- Q&A List -->
+            <div class="qa-container">
+                <h3 style="color:#ff6b6b;margin-bottom:1rem">问题列表 <span id="qaCount"></span></h3>
+                <div class="qa-filter">
+                    <select id="qaFilter" onchange="renderQA()">
+                        <option value="all">显示全部</option>
+                        <option value="answered">已回复</option>
+                        <option value="pending">待回复</option>
+                    </select>
+                </div>
+                <div id="qaLoading" class="loading">加载中...</div>
+                <ul class="qa-list" id="qaList"></ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="conclusion">
+                <h2>最后的话</h2>
+                <p>幼升小是孩子人生中的重要转折点。家长的态度和支持对孩子的适应至关重要，相信孩子的能力，给予充分的鼓励和耐心，孩子一定能够顺利过渡到小学生活。祝所有小朋友都能在小学里开心学习，健康成长！</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>🎒 幼升小注意事项 | 帮助孩子顺利过渡</p>
+    </footer>
+
+    <script>
+        // ============ API Configuration ============
+        // Use online API when deployed, local API when running locally
+        const API_BASE = window.location.hostname === 'localhost' 
+            ? 'http://localhost:3000' 
+            : 'https://youshengxiao.onrender.com';
+
+        let isAdmin = false;
+
+        // ============ API Functions ============
+        async function fetchQA() {
+            try {
+                const res = await fetch(`${API_BASE}/api/qa`);
+                const data = await res.json();
+                return data.success ? data.data : [];
+            } catch (error) {
+                console.error('Failed to fetch:', error);
+                return [];
+            }
+        }
+
+        async function submitQA(qa) {
+            const res = await fetch(`${API_BASE}/api/qa`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(qa)
+            });
+            return res.json();
+        }
+
+        async function updateQA(id, data) {
+            const res = await fetch(`${API_BASE}/api/qa/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            return res.json();
+        }
+
+        async function deleteQA(id) {
+            const res = await fetch(`${API_BASE}/api/qa/${id}`, {
+                method: 'DELETE'
+            });
+            return res.json();
+        }
+
+        async function adminLoginApi(username, password) {
+            const res = await fetch(`${API_BASE}/api/admin/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            return res.json();
+        }
+
+        // ============ UI Functions ============
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            const date = new Date(dateStr);
+            return date.toLocaleString('zh-CN');
+        }
+
+        async function renderQA() {
+            const qaList = await fetchQA();
+            const filter = document.getElementById('qaFilter').value;
+            const listEl = document.getElementById('qaList');
+            const countEl = document.getElementById('qaCount');
+            const loadingEl = document.getElementById('qaLoading');
+
+            loadingEl.style.display = 'none';
+
+            let filtered = qaList;
+            if (filter === 'answered') {
+                filtered = qaList.filter(q => q.status === 'answered');
+            } else if (filter === 'pending') {
+                filtered = qaList.filter(q => q.status === 'pending');
+            }
+
+            countEl.textContent = `（共 ${filtered.length} 条）`;
+
+            if (filtered.length === 0) {
+                listEl.innerHTML = '<li class="qa-empty">暂无问题</li>';
+                return;
+            }
+
+            listEl.innerHTML = filtered.map(q => `
+                <li class="qa-item ${isAdmin ? 'admin-view' : ''}">
+                    <div class="qa-question">${escapeHtml(q.title)}</div>
+                    <div class="qa-answer">${escapeHtml(q.content)}</div>
+                    ${q.answer ? `<div style="background:#f0f8f0;padding:1rem;border-radius:8px;margin:.5rem 0"><strong style="color:#27ae60">回复：</strong>${escapeHtml(q.answer)}</div>` : ''}
+                    <div class="qa-meta">
+                        <span>👤 ${escapeHtml(q.name)} ${q.phone ? '| 📞 ' + escapeHtml(q.phone) : ''} | ${formatDate(q.created_at)}</span>
+                        <span style="color:${q.status === 'answered' ? '#27ae60' : '#e74c3c'}">${q.status === 'answered' ? '✅ 已回复' : '⏳ 待回复'}</span>
+                    </div>
+                    ${isAdmin ? `
+                    <div class="qa-actions" style="margin-top:1rem">
+                        <button class="qa-btn qa-btn-secondary qa-btn-small" onclick="editQA('${q.id}')">${q.answer ? '编辑回复' : '回复'}</button>
+                        <button class="qa-btn qa-btn-danger qa-btn-small" onclick="confirmDelete('${q.id}')">删除</button>
+                    </div>
+                    ` : ''}
+                </li>
+            `).join('');
+        }
+
+        // ============ Event Handlers ============
+        document.getElementById('qaForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const qa = {
+                name: document.getElementById('qaName').value || '匿名用户',
+                phone: document.getElementById('qaPhone').value || '',
+                title: document.getElementById('qaTitle').value,
+                content: document.getElementById('qaContent').value
+            };
+            
+            const result = await submitQA(qa);
+            if (result.success) {
+                document.getElementById('qaForm').reset();
+                renderQA();
+                alert('问题提交成功！管理员会尽快回复。');
+            } else {
+                alert('提交失败：' + (result.message || '未知错误'));
+            }
+        });
+
+        async function adminLogin() {
+            const username = document.getElementById('adminPassword').value;
+            const result = await adminLoginApi('admin', username);
+            if (result.success) {
+                isAdmin = true;
+                document.getElementById('adminLogin').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+                renderQA();
+            } else {
+                alert('密码错误！');
+            }
+        }
+
+        function adminLogout() {
+            isAdmin = false;
+            document.getElementById('adminLogin').style.display = 'block';
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('adminPassword').value = '';
+            renderQA();
+        }
+
+        async function editQA(id) {
+            const qaList = await fetchQA();
+            const qa = qaList.find(q => q.id == id);
+            if (!qa) return;
+
+            const newAnswer = prompt('请输入回复内容：', qa.answer || '');
+            if (newAnswer !== null) {
+                await updateQA(id, { 
+                    answer: newAnswer,
+                    status: newAnswer ? 'answered' : 'pending'
+                });
+                renderQA();
+            }
+        }
+
+        async function confirmDelete(id) {
+            if (confirm('确定要删除这个问题吗？')) {
+                await deleteQA(id);
+                renderQA();
+            }
+        }
+
+        // ============ Initialize ============
+        renderQA();
+    </script>
+</body>
+</html>
